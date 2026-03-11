@@ -85,6 +85,7 @@ conn.send(message.encode())
 conn.close()
 
 server_socket.close()
+<img width="778" height="196" alt="image" src="https://github.com/user-attachments/assets/5e57a4b3-85cd-486a-8d07-977b5e730b26" />
 
 ##CLIENT PROGRAM:
 
@@ -107,5 +108,7 @@ data = client_socket.recv(1024).decode()
 print("Server says:", data)
 
 client_socket.close()
+<img width="790" height="176" alt="image" src="https://github.com/user-attachments/assets/695806d8-76cf-4d6b-be4e-9a554953cb9f" />
+
 ## Result:
 Thus the study of Socket Programming Completed Successfully
