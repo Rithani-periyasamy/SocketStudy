@@ -55,24 +55,36 @@ Socket programming finds applications in various domains, including web developm
 
 ##SERVER PROGRAM:
 
+
 import socket
 
 
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
 host = '127.0.0.1'
 port = 12345
-client_socket.connect((host, port))
-
-message = "Hello Server!"
-client_socket.send(message.encode())
-
-data = client_socket.recv(1024).decode()
-print("Server says:", data)
+server_socket.bind((host, port))
 
 
-client_socket.close()
+server_socket.listen(1)
+print("Server is waiting for connection...")
+
+
+conn, addr = server_socket.accept()
+print("Connected to:", addr)
+
+
+data = conn.recv(1024).decode()
+print("Client says:", data)
+
+
+message = "Hello Client, message received!"
+conn.send(message.encode())
+
+
+conn.close()
+server_socket.close()
 
 ##CLIENT PROGRAM:
 
